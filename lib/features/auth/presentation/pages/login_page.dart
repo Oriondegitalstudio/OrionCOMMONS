@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:orion_commons/core/router/app_routes.dart';
+import 'package:orion_commons/generated/locale_keys.g.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
         child:Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text('login.login'.tr(),style: Theme.of(context).textTheme.headlineLarge),
+            Text(LocaleKeys.login_login.tr(),style: Theme.of(context).textTheme.headlineLarge),
             ElevatedButton(
               onPressed: () {
                 // Handle action here (e.g., Navigate to search or login)
