@@ -12,9 +12,9 @@ void main() async {
   
   runApp(
     EasyLocalization(
-      supportedLocales: const [Locale('en', 'US'), Locale('es', 'ES')],
+      supportedLocales: const [Locale('en'), Locale('fr'),Locale('ar')],
       path: 'assets/translations', // Translation files path
-      fallbackLocale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('en'),
       child: const OrionCommonsApp(),
     ),
   );

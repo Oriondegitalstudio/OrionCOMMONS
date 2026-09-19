@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:orion_commons/core/errors/failures.dart';
+import 'package:orion_commons/core/exeptions/failures.dart';
 import 'package:orion_commons/features/auth/domain/entities/user_entity.dart';
 import 'package:orion_commons/features/auth/domain/repositories/auth_repository.dart';
 
