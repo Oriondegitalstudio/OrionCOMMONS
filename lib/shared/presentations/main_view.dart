@@ -1,47 +1,88 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
 import 'package:orion_commons/core/router/app_routes.dart';
 import 'package:orion_commons/core/router/route_config.dart';
+import 'package:orion_commons/core/theme/theme_constants.dart';
+import 'package:orion_commons/shared/presentations/widgets/CreateButton.dart';
+import 'package:orion_commons/shared/presentations/widgets/OrionBottomNavigation.dart';
 
 class MainView extends StatefulWidget {
   final ShellRouteConfig config;
 
-  const MainView({super.key, required this.config});
+  const MainView({
+    super.key,
+    required this.config,
+  });
 
   @override
   State<MainView> createState() => _MainViewState();
 }
 
 class _MainViewState extends State<MainView> {
-  // Map routes to bottom navigation indices
   int _getSelectedIndex(BuildContext context) {
     final currentRoute = ModalRoute.of(context)?.settings.name;
+
     switch (currentRoute) {
       case AppRoutes.home:
         return 0;
-      case AppRoutes.search:
+
+      case AppRoutes.discover:
         return 1;
-      case AppRoutes.profile:
+
+      case AppRoutes.learn:
         return 2;
+
+      case AppRoutes.profile:
+        return 3;
+
       default:
-        return 0;
+        return -1;
     }
   }
 
-  void _onItemTapped(int index) {
-    if (index == _getSelectedIndex(context)) return;
+  void _onNavigationItemTapped(int index) {
+    final currentIndex = _getSelectedIndex(context);
+
+    if (index == currentIndex) {
+      return;
+    }
 
     switch (index) {
       case 0:
-        Navigator.pushReplacementNamed(context, AppRoutes.home);
+        Navigator.pushReplacementNamed(
+          context,
+          AppRoutes.home,
+        );
         break;
+
       case 1:
-        Navigator.pushReplacementNamed(context, AppRoutes.search);
+        Navigator.pushReplacementNamed(
+          context,
+          AppRoutes.discover,
+        );
         break;
+
       case 2:
-        Navigator.pushReplacementNamed(context, AppRoutes.profile);
+        Navigator.pushReplacementNamed(
+          context,
+          AppRoutes.learn,
+        );
+        break;
+
+      case 3:
+        Navigator.pushReplacementNamed(
+          context,
+          AppRoutes.profile,
+        );
         break;
     }
+  }
+
+  void _onCreatePressed() {
+    Navigator.pushNamed(
+      context,
+      AppRoutes.create,
+    );
   }
 
   @override
@@ -49,37 +90,34 @@ class _MainViewState extends State<MainView> {
     final selectedIndex = _getSelectedIndex(context);
 
     return Scaffold(
-      // 1. Dynamic AppBar controlled by the active page
+      backgroundColor: ThemeConstants.backgroundColor,
       appBar: widget.config.appBar,
-
-      // 2. Dynamic Body controlled by the active page route
       body: widget.config.body,
 
-      // 3. Dynamic BottomNavigationBar controlled by the active page flag
+
       bottomNavigationBar: widget.config.showBottomBar
-          ? BottomNavigationBar(
-        currentIndex: selectedIndex,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.home_outlined),
-            activeIcon: const Icon(Icons.home),
-            label: 'nav.home'.tr(),
+          ? SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(
+            16,
+            0,
+            16,
+            12,
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.search),
-            activeIcon: const Icon(Icons.search_rounded),
-            label: 'nav.search'.tr(),
+          child: OrionBottomNavigation(
+            selectedIndex: selectedIndex,
+            onItemTapped: _onNavigationItemTapped,
+            onCreatePressed: _onCreatePressed,
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.person_outline),
-            activeIcon: const Icon(Icons.person),
-            label: 'nav.profile'.tr(),
-          ),
-        ],
+        ),
       )
-          : null, // Completely hides the bottom bar when set to false
+          : null,
     );
   }
 }
+
+
+
+
+

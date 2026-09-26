@@ -47,13 +47,35 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/translations/
-    - assets/fonts/
+    - assets/fonts/manrope/
+    - assets/fonts/wittgenstein/
 
-  # fonts:
-  #   - family: MyCustomFont
-  #     fonts:
-  #       - asset: assets/fonts/MyCustomFont-Regular.ttf
-  #       - asset: assets/fonts/MyCustomFont-Bold.ttf
-  #         weight: 700
+  fonts:
+     - family: manrope
+       fonts:
+         - asset: assets/fonts/manrope/Manrope-Bold.ttf
+           weight: 700
+         - asset: assets/fonts/manrope/Manrope-ExtraBold.ttf
+           weight: 800
+         - asset: assets/fonts/manrope/Manrope-Light.ttf
+           weight: 300
+         - asset: assets/fonts/manrope/Manrope-Medium.ttf
+           weight: 500
+         - asset: assets/fonts/manrope/Manrope-Regular.ttf
+           weight: 400
+         - asset: assets/fonts/manrope/Manrope-SemiBold.ttf
+           weight: 600
+     - family: wittgenstein
+       fonts:
+         - asset: assets/fonts/wittgenstein/wittgenstein-Bold.ttf
+           weight: 700
+         - asset: assets/fonts/wittgenstein/wittgenstein-ExtraBold.ttf
+           weight: 800
+         - asset: assets/fonts/wittgenstein/wittgenstein-Medium.ttf
+           weight: 500
+         - asset: assets/fonts/wittgenstein/wittgenstein-Regular.ttf
+           weight: 400
+         - asset: assets/fonts/wittgenstein/wittgenstein-SemiBold.ttf
+           weight: 600
 
 

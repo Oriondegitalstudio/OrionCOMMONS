@@ -1,33 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:orion_commons/core/theme/theme_constants.dart';
 
 class AppTextStyles {
-  static const TextStyle headlineLarge = TextStyle(
+  AppTextStyles._();
+  // headline
+
+  static TextStyle headlineLarge = TextStyle(
+    fontFamily: 'wittgenstein',
     fontSize: 32,
-    fontWeight: FontWeight.bold,
-    color: Colors.black,
+    fontWeight: FontWeight.w700,
+    color: ThemeConstants.titleColor,
   );
 
-  static const TextStyle headlineMedium = TextStyle(
-    fontSize: 24,
+  static TextStyle headlineMedium = TextStyle(
+    fontFamily: 'wittgenstein',
+    fontSize: 28,
     fontWeight: FontWeight.w600,
-    color: Colors.black,
+    color: ThemeConstants.titleColor,
   );
 
-  static const TextStyle bodyLarge = TextStyle(
+  // Body
+
+  static TextStyle bodyLarge = TextStyle(
+    fontFamily: 'manrope',
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: Color(0xFF222522),
+  );
+
+  static  TextStyle bodyMedium = TextStyle(
+    fontFamily: 'manrope',
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: ThemeConstants.textColor,
+  );
+
+  // Labels / Buttons
+
+  static TextStyle labelLarge = TextStyle(
+    fontFamily: 'manrope',
     fontSize: 16,
-    fontWeight: FontWeight.normal,
-    color: Colors.black87,
-  );
-
-  static const TextStyle bodyMedium = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.normal,
-    color: Colors.black54,
-  );
-
-  static const TextStyle labelLarge = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.bold,
-    color: Colors.white,
+    fontWeight: FontWeight.w700,
+    color:ThemeConstants.white,
   );
 }
